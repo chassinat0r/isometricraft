@@ -15,6 +15,6 @@
 
 #define TEXTURE_SIZE 96
 
-#define RENDER_DISTANCE 16
+#define RENDER_DISTANCE 24
 
 #endif

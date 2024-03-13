@@ -19,7 +19,7 @@ SDL_Window *create_window(char *title) {
         SDL_WINDOWPOS_CENTERED,
         WINDOW_WIDTH,
         WINDOW_HEIGHT,
-        0
+        SDL_WINDOW_RESIZABLE
     );
 }
 
