@@ -2,31 +2,27 @@
 #define WORLD_H
 
 #include <sqlite3.h>
+#include <SDL2/SDL_mixer.h>
 
-#include "./constants.h"
-#include "./camera.h"
-#include "./cursor.h"
+#include <constants.h>
 
-typedef struct {
-    int x;
-    int y;
-} Coords2D_Object;
+class World {
+    sqlite3 *db;
 
-typedef struct {
-    int x;
-    int y;
-    int z;
-} Coords3D_Object;
+    public:
+        int map[MAP_HEIGHT][MAP_LENGTH][MAP_WIDTH];
+        
+        World(char *filename);
+        
+        void generate();
+        void load();
+        void save();
 
-typedef struct {
-    int x;
-    int y;
-} RealCoords_Object;
+        void break_block(int x, int y, int z);
+        void place_block(int x, int y, int z, int id);
 
-void generate_world(sqlite3 *db);
-void load_world(SDL_Window *window, SDL_Renderer *renderer, int world[WORLD_HEIGHT][WORLD_LENGTH][WORLD_WIDTH], Camera_Object camera, Cursor_Object cursor);
-
-void open_world(int world[WORLD_HEIGHT][WORLD_LENGTH][WORLD_WIDTH]);
-void save_world(int world[WORLD_HEIGHT][WORLD_LENGTH][WORLD_WIDTH]);
+        Mix_Chunk *block_break;
+        Mix_Chunk *block_place;
+};
 
 #endif

@@ -1,9 +1,18 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-typedef struct {
-    int x;
-    int y;
-} Camera_Object;
+class Camera {
+    public:
+        int fx;
+        int fy;
+        bool locked;
+
+        Camera(int fx, int fy, bool locked = false);
+
+        void move_up();
+        void move_down();
+        void move_left();
+        void move_right();
+};
 
 #endif

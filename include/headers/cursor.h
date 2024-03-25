@@ -1,15 +1,15 @@
 #ifndef CURSOR_H
 #define CURSOR_H
 
-#include <stdbool.h>
+class Cursor {
+    public:
+        int x;
+        int y;
+        int z;
 
-#include "./camera.h"
-
-typedef struct {
-    int x;
-    int y;
-    int z;
-    bool show;
-} Cursor_Object;
+        Cursor(int x, int y, int z);
+        
+        void move(int dx, int dy, int dz);
+};
 
 #endif
