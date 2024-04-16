@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <cstring>
 
 #include <game.h>
 #include <blocks.h>
